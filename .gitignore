@@ -3,3 +3,4 @@
 .vs
 *.csproj
 *.sln
+export_presets.cfg
