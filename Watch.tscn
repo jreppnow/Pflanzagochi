@@ -1,12 +1,19 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/clock_placeholder_3.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/clock_placeholder_6.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/clock_placeholder_9.jpg" type="Texture" id=3]
+[ext_resource path="res://assets/clock_placeholder_0.jpg" type="Texture" id=4]
+[ext_resource path="res://Watch.cs" type="Script" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 4.0
 } ]
 
 [node name="AnimatedSprite" type="AnimatedSprite"]
 frames = SubResource( 1 )
+script = ExtResource( 5 )
