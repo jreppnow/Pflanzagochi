@@ -1,4 +1,4 @@
-using Godot;
+sing Godot;
 using System;
 
 public class Plant : Sprite
