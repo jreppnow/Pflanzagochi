@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Watch.tscn" type="PackedScene" id=1]
 [ext_resource path="res://WateringCan.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Plant.tscn" type="PackedScene" id=3]
+[ext_resource path="res://WeatherEffect.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node"]
 
@@ -12,3 +13,5 @@
 
 [node name="WateringCan" parent="." instance=ExtResource( 2 )]
 position = Vector2( 430, 50 )
+
+[node name="weathereffect" parent="." instance=ExtResource( 4 )]
