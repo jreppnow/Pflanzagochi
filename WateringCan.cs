@@ -24,7 +24,7 @@ public class WateringCan : AnimatedSprite
 				EmitSignal("Pouring", Position);	
 				if (!wasPouring)
 				{
-					GD.Print("Started pouring at location {}", Position);
+					GD.Print("Started pouring at location ", Position, ".");
 					Animation = "pouring";
 					Play();
 				}
@@ -33,7 +33,7 @@ public class WateringCan : AnimatedSprite
 		{
 			if (wasPouring)
 			{
-				GD.Print("Stopped pouring at location {}", Position);
+				GD.Print("Stopped pouring at location ", Position, ".");
 			}
 			Animation = "default";
 			Stop();

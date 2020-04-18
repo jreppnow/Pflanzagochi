@@ -15,16 +15,17 @@ public class Clock : Sprite
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		clock0 = (Texture)GD.Load("res://assets/clock_placeholder_0.jpg"); // Godot loads the Resource when it reads the line.
-		clock3 = (Texture)GD.Load("res://assets/clock_placeholder_3.jpg"); // Godot loads the Resource when it reads the line.
-		clock6 = (Texture)GD.Load("res://assets/clock_placeholder_6.jpg"); // Godot loads the Resource when it reads the line.
-		clock9 = (Texture)GD.Load("res://assets/clock_placeholder_9.jpg"); // Godot loads the Resource when it reads the line.
+		clock0 = (Texture) GD.Load("res://assets/clock_placeholder_0.jpg"); // Godot loads the Resource when it reads the line.
+		clock3 = (Texture) GD.Load("res://assets/clock_placeholder_3.jpg"); // Godot loads the Resource when it reads the line.
+		clock6 = (Texture) GD.Load("res://assets/clock_placeholder_6.jpg"); // Godot loads the Resource when it reads the line.
+		clock9 = (Texture) GD.Load("res://assets/clock_placeholder_9.jpg"); // Godot loads the Resource when it reads the line.
 
 		Texture = clock0;
 	}
 
 	private Texture GetTexture(int time)
 	{
+		time %= 11;
 		if (time < 3 || time > 11)
 		{
 			return clock0;
@@ -42,7 +43,8 @@ public class Clock : Sprite
 
 	private void OnTimeUpdate()
 	{
-		time = (time + 1) % 12;
+		time = (time + 1) % 23;
+		GD.Print("Update time to ", time, " o'clock..");
 		EmitSignal("UpdateTime", time);
 		Texture = GetTexture(time);
 	}
