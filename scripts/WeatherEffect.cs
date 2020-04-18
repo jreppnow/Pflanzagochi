@@ -38,6 +38,5 @@ public class WeatherEffect : Sprite
 	public void UpdateTime(int hour)
 		{
 			Texture = GetTexture(hour % 3);
-		// Replace with function body.
 	}
 }

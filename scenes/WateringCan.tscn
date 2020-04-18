@@ -5,7 +5,6 @@
 [ext_resource path="res://assets/can/can_pouring2.png" type="Texture" id=3]
 [ext_resource path="res://assets/can/can_pouring1.png" type="Texture" id=4]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],

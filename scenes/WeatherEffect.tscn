@@ -2,7 +2,6 @@
 
 [ext_resource path="res://scripts/WeatherEffect.cs" type="Script" id=1]
 
-
-[node name="weathereffect" type="Sprite"]
+[node name="WeatherEffect" type="Sprite"]
 position = Vector2( 50, 50 )
 script = ExtResource( 1 )
