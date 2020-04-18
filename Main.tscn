@@ -15,7 +15,6 @@
 
 [node name="Plant" parent="." instance=ExtResource( 3 )]
 scale = Vector2( 4, 4 )
-frame = 0
 
 [node name="weathereffect" parent="." instance=ExtResource( 4 )]
 
