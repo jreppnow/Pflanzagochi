@@ -3,10 +3,6 @@ using System;
 
 public class WeatherEffect : Sprite
 {
-
-	[Signal]
-	public delegate void UpdateTime(int hour);
-
 	private int time = 0;
 	private Texture sunny;
 	private Texture cloudy;
@@ -38,10 +34,10 @@ public class WeatherEffect : Sprite
 		}
 	}
 
-	public void OnTimeUpdate()
-	{
-		time = (time + 1 ) % 3;
-		EmitSignal("UpdateTime", time);
-		Texture = GetTexture(time);
+
+	public void UpdateTime(int hour)
+		{
+			Texture = GetTexture(hour % 3);
+		// Replace with function body.
 	}
 }
