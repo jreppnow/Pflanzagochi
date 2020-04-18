@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="pflanzaguchi"
-config/icon="res://icon.png"
+run/main_scene="res://Main.tscn"
 
 [display]
 
