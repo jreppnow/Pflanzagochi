@@ -15,9 +15,9 @@ public class WeatherEffect : Sprite
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		sunny = (Texture)GD.Load("res://assets/weather_sunny.png"); // Godot loads the Resource when it reads the line.
-		cloudy = (Texture)GD.Load("res://assets/weather_cloudy.png"); // Godot loads the Resource when it reads the line.
-		rainy = (Texture)GD.Load("res://assets/weather_rainy.png"); // Godot loads the Resource when it reads the line.
+		sunny = (Texture)GD.Load("res://assets/weather/weather_sunny.png"); // Godot loads the Resource when it reads the line.
+		cloudy = (Texture)GD.Load("res://assets/weather/weather_cloudy.png"); // Godot loads the Resource when it reads the line.
+		rainy = (Texture)GD.Load("res://assets/weather/weather_rainy.png"); // Godot loads the Resource when it reads the line.
 
 		Texture = sunny;
 	}
