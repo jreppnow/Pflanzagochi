@@ -20,4 +20,5 @@
 [node name="Calender" parent="." instance=ExtResource( 6 )]
 
 [node name="WateringCan" parent="." instance=ExtResource( 2 )]
-position = Vector2( 430, 50 )
+position = Vector2( 423.848, 50 )
+[connection signal="UpdateTime" from="Clock" to="weathereffect" method="UpdateTime"]
