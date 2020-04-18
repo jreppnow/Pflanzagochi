@@ -1,3 +1,5 @@
 .mono
 *.import
 .vs
+.csproject
+.sln
