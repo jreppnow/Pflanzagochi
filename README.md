@@ -1,4 +1,4 @@
-# Plant Tamagutchi (Working Title)
+# Plant Tamaguchi (Working Title)
 
 This repository contains a small game built with Godot Engine in the wake of [Ludem Dare](https://ldjam.com/) 46. 
 The game's goal is to raise an indoor plant, not letting it dry out and making it survive for as long as possible. 
