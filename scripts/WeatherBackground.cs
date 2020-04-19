@@ -4,42 +4,43 @@ using System;
 
 public class WeatherBackground : Sprite
 {
-	private int time = 0;
 	private int effectCount = 0;
 	
-	private Texture sunnyB;
-	private Texture cloudyB;
-	private Texture rainyB;
-	private Texture nightB;
+	private Texture sunny;
+	private Texture cloudy;
+	private Texture rainy;
+	private Texture night;
 	
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{	
-		sunnyB = (Texture)GD.Load("res://assets/weather/Back_Sunny.png"); // Godot loads the Resource when it reads the line.
-		cloudyB = (Texture)GD.Load("res://assets/weather/Back_Cloudy.png"); // Godot loads the Resource when it reads the line.
-		rainyB = (Texture)GD.Load("res://assets/weather/Back_Rainy.png"); // Godot loads the Resource when it reads the line.	
-		nightB = (Texture)GD.Load("res://assets/weather/Back_Night.png"); // Godot loads the Resource when it reads the line.	
+		sunny = (Texture)GD.Load("res://assets/weather/Back_Sunny.png"); // Godot loads the Resource when it reads the line.
+		cloudy = (Texture)GD.Load("res://assets/weather/Back_Cloudy.png"); // Godot loads the Resource when it reads the line.
+		rainy = (Texture)GD.Load("res://assets/weather/Back_Rainy.png"); // Godot loads the Resource when it reads the line.	
+		night = (Texture)GD.Load("res://assets/weather/Back_Night.png"); // Godot loads the Resource when it reads the line.	
 
-		Texture = sunnyB;
+		Texture = sunny;
 	}
 
 	private Texture GetTexture(int time)
 	{
-		if (time < 6) {
-			return nightB;
-		} else if (time > 22){
-			return nightB;
+		if (time < 6 || time > 22){
+			return night;
 		} else {	
-			effectCount++;
-			if (effectCount % 50 == 1) {
-				return rainyB;
-			} else if (effectCount %30 == 1) {
-				return cloudyB;
-			} else {
-				return sunnyB;
-			}
+			return GenerateDayTimeWeather();
 		}
+	}
+	
+	private Texture GenerateDayTimeWeather() {
+		effectCount++;
+			if (effectCount % 50 == 1) {
+				return rainy;
+			} else if (effectCount %30 == 1) {
+				return cloudy;
+			} else {
+				return sunny;
+			}
 	}
 
 
