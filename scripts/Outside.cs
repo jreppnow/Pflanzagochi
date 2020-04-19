@@ -3,7 +3,17 @@ using System;
 
 public class Outside : Sprite
 {
+	private static int NIGHT = 0;
+	private static int SUNNY = 1;
+	private static int RAINY = 2;
+	private static int CLOUDY = 3;
+	
+	private static int weatherCondition = SUNNY;
 	private int effectCount = 0;
+	
+	
+	[Signal]
+	public delegate void UpdateWeather(int weather);
 	
 	private Texture sunny;
 	private Texture cloudy;
@@ -22,29 +32,51 @@ public class Outside : Sprite
 		Texture = sunny;
 	}
 
-	private Texture GetTexture(int time)
+	private void GenerateWeatherConditions(int time)
 	{
-		if (time < 6 || time > 22){
-			return night;
+		if (time < 6 || time > 22){	
+			weatherCondition = NIGHT;
+			Texture = night;
 		} else {	
-			return GenerateDayTimeWeather();
+			GenerateDayTimeWeather();
 		}
+		EmitSignal("UpdateWeather", weatherCondition);
 	}
 	
-	private Texture GenerateDayTimeWeather() {
-		effectCount++;
-			if (effectCount % 50 == 1) {
-				return rainy;
-			} else if (effectCount %30 == 1) {
-				return cloudy;
-			} else {
-				return sunny;
-			}
+	private void GenerateDayTimeWeather() {
+		effectCount++;		
+		if (effectCount < 2) {
+			weatherCondition = CLOUDY;
+			Texture = cloudy;
+		} else if (effectCount < 5) {
+			weatherCondition = RAINY;
+			Texture = rainy;
+		} else if (effectCount < 8) {
+			weatherCondition = CLOUDY;
+			Texture = cloudy;
+		} else if (effectCount > 20) {
+			effectCount = 0;
+		} else {
+			weatherCondition = SUNNY;
+			Texture = sunny;
+		}
+		
 	}
-
+	
+	private Texture GetWeatherTexture() {
+		if(weatherCondition == NIGHT ) {	
+			return night;
+		} else if (weatherCondition == RAINY ) {
+			return rainy;
+		} else if ( weatherCondition == CLOUDY) {
+			return cloudy;
+		} else {
+			return sunny;
+		}
+	}
 
 	public void UpdateTime(int hour)
 	{
-			Texture = GetTexture(hour);
+		GenerateWeatherConditions(hour);
 	}
 }
