@@ -1,15 +1,13 @@
 using Godot;
 using System;
 
-public class Day : RichTextLabel
+public class Day : Label
 {
-	private string day = "0";
 
-	public override void _Ready()
+	
+	public void UpdateDay(int day)
 	{
-		
+		GD.Print("[Calender]: Today is day " + day + " of the calender");
 	}
 
 }
-
-

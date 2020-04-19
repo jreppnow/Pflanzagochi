@@ -19,6 +19,7 @@ scale = Vector2( 0.35, 0.35 )
 [node name="Clock" parent="." instance=ExtResource( 5 )]
 
 [node name="Plant" parent="." instance=ExtResource( 6 )]
+frame = 1
 
 [node name="weathereffect" parent="." instance=ExtResource( 2 )]
 
@@ -26,5 +27,7 @@ scale = Vector2( 0.35, 0.35 )
 
 [node name="WateringCan" parent="." instance=ExtResource( 1 )]
 position = Vector2( 423.848, 50 )
-[connection signal="UpdateTime" from="Clock" to="Background" method="UpdateTime"]
 [connection signal="UpdateTime" from="Clock" to="weathereffect" method="UpdateTime"]
+[connection signal="UpdateTime" from="Clock" to="Background" method="UpdateTime"]
+[connection signal="UpdateTime" from="Clock" to="Background" method="_on_Clock_UpdateTime"]
+[connection signal="UpdateTime" from="Clock" to="Calender" method="UpdateDay"]

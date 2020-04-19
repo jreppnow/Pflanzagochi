@@ -5,8 +5,12 @@ public class Clock : Sprite
 {
 	[Signal]
 	public delegate void UpdateTime(int hour);
+	public delegate void UpdateDay(int day);
 
 	private int time = 0;
+	private int hour = 0;
+	private int day = 0;
+	
 	private Texture[] clock = new Texture[12];
 	
 	// Called when the node enters the scene tree for the first time.
@@ -28,17 +32,23 @@ public class Clock : Sprite
 		Texture = clock[0];
 	}
 
-	private Texture GetTexture(int time)
-	{
-		return clock[time % 12];
-	}
-
 	private void OnTimeUpdate()
 	{
-		time = (time + 1) % 24;
-		GD.Print("Update time to ", time, " o'clock..");
-		EmitSignal("UpdateTime", time);
-		Texture = GetTexture(time);
+		time++;
+		updateHours(time % 24);
+		updateDays(time / 24);
+	}
+	
+	private void updateHours(int hours) {
+		hour = hours;
+		EmitSignal("UpdateTime", hours);
+		
+		GD.Print("[Watch]: Update time to ", hours, " o'clock..");
+		Texture = clock[hours % 12];
+	}
+	
+	private void updateDays(int days) {
+		day = days;
+		EmitSignal("UpdateDay", days );
 	}
 }
-

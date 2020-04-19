@@ -44,8 +44,7 @@ public class WeatherBackground : Sprite
 
 
 	public void UpdateTime(int hour)
-		{
+	{
 			Texture = GetTexture(hour);
 	}
 }
-

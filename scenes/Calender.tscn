@@ -1,22 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/calender.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Day.cs" type="Script" id=2]
 
-
-[node name="Calender" type="Sprite"]
-position = Vector2( 240, 50 )
-texture = ExtResource( 1 )
-
-[node name="Day" type="RichTextLabel" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = -18.3802
-margin_top = -13.5494
-margin_right = 19.6198
-margin_bottom = 5.45062
-meta_underlined = false
-tab_size = 5
-text = "25"
+[node name="Day" type="Label"]
+margin_left = 220.588
+margin_top = 36.5545
+margin_right = 260.588
+margin_bottom = 50.5545
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
