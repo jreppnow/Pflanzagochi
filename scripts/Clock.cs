@@ -10,6 +10,8 @@ public class Clock : Sprite
 	[Signal]
 	public delegate void UpdateWakeUp();
 	[Signal]
+	public delegate void UpdateNightTime();
+	[Signal]
 	public delegate void UpdateGameTime(int time);
 
 	[Export]
@@ -50,6 +52,8 @@ public class Clock : Sprite
 		EmitSignal("UpdateTime", hours);
 		if (hours == 6) {
 			EmitSignal("UpdateWakeUp");
+		} else if (hours == 22) {
+			EmitSignal("UpdateNightTime");
 		}
 		
 		GD.Print("[CLOCK]: Update time to ", hours, " o'clock..");
