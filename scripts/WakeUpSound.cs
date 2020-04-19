@@ -6,7 +6,7 @@ public class WakeUpSound : AudioStreamPlayer2D
 	
 	public void UpdateWakeUp()
 	{	
-		//Play();
+		Play();
 	}
 
 }
