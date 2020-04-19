@@ -1,8 +1,7 @@
-
 using Godot;
 using System;
 
-public class WeatherBackground : Sprite
+public class Outside : Sprite
 {
 	private int effectCount = 0;
 	

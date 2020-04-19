@@ -23,5 +23,5 @@ scale = Vector2( 0.35, 0.35 )
 
 [node name="WateringCan" parent="." instance=ExtResource( 1 )]
 position = Vector2( 423.848, 50 )
-[connection signal="UpdateTime" from="Clock" to="Outside" method="UpdateTime"]
 [connection signal="UpdateTime" from="Clock" to="Calender" method="UpdateDay"]
+[connection signal="UpdateTime" from="Clock" to="Outside" method="UpdateTime"]
