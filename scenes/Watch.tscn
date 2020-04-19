@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Clock.cs" type="Script" id=1]
 [ext_resource path="res://scripts/WakeUpSound.cs" type="Script" id=2]
 [ext_resource path="res://assets/animals_cockrel_crow_001.wav" type="AudioStream" id=3]
+[ext_resource path="res://scripts/NightTimeSound.cs" type="Script" id=4]
+[ext_resource path="res://assets/zapsplat_animals_owl_hoot_night_001_37287.wav" type="AudioStream" id=5]
 
 [node name="Clock" type="Sprite"]
 position = Vector2( 430, 50 )
 scale = Vector2( 0.08, 0.08 )
 script = ExtResource( 1 )
+gameTimeVsRealTimeFactor = 8000
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -16,5 +19,10 @@ autostart = true
 [node name="WakeUpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 script = ExtResource( 2 )
+
+[node name="NightTimeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+script = ExtResource( 4 )
+[connection signal="UpdateNightTime" from="." to="NightTimeSound" method="UpdateNightTime"]
 [connection signal="UpdateWakeUp" from="." to="WakeUpSound" method="UpdateWakeUp"]
 [connection signal="timeout" from="Timer" to="." method="OnTimeUpdate"]
