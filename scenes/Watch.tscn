@@ -8,9 +8,10 @@
 position = Vector2( 430, 50 )
 scale = Vector2( 0.08, 0.08 )
 script = ExtResource( 1 )
+gameTimeVsRealTimeFactor = 10
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 autostart = true
 
 [node name="WakeUpSound" type="AudioStreamPlayer2D" parent="."]

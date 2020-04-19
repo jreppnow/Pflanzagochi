@@ -3,7 +3,6 @@ using System;
 
 public class Plant : AnimatedSprite
 {
-	private const String EMPTY_POT = "nothing";
 	private const String DEAD = "growing";
 	private const String DYING  = "middle_grown";
 	private const String HAPPY = "happy";
@@ -16,17 +15,15 @@ public class Plant : AnimatedSprite
 	[Export]
 	public int waterLevelHigherThreshold = 3000;
 	[Export]
-	public int drainingRate = 10;
+	public float drainingRate = 0.005f;
 	[Export]
-	public int pouringRate = 100;
+	public float pouringRate = 0.1f;
 	[Export]
-	public int growingTime = 50;
+	public int dryOutTimeThreshold = 300000;
 	[Export]
-	public int dryOutTimeThreshold = 30000;
+	public int overwateringTimeThreshold = 10000000;
 	[Export]
-	public int overwateringTimeThreshold = 1000000;
-	[Export]
-	public int statusDropTimeThreshold = 100000;
+	public int statusDropTimeThreshold = 1000000;
 
 	private int dryingOutTime = -1;
 	private int overwateringTime = -1;
@@ -34,7 +31,7 @@ public class Plant : AnimatedSprite
 	private int waterLevel = 0;
 	private int unhappyTime = 0;
 	private int lastTickedTime = 0;
-	private bool pouring = false;
+	private Vector2? pouring = null;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -49,7 +46,7 @@ public class Plant : AnimatedSprite
 
 	private void drain(int delta)
 	{
-		int draining = delta * drainingRate;
+		int draining = (int) (((float) delta) * drainingRate);
 		if (waterLevel <= draining)
 		{
 			waterLevel = 0;
@@ -88,12 +85,14 @@ public class Plant : AnimatedSprite
 			Animation = DEAD;
 			EmitSignal("Died");
 		}
+
+		GD.Print("Updated plant, water level [", waterLevelLowerThreshold, " -> ", waterLevel, " -> ", waterLevelHigherThreshold);
 	}
 
 	private void UpdateGameTime(int time)
 	{
 		int passedTime = time - lastTickedTime;
-		if (pouring)
+		if (null != pouring)
 		{
 			pour(passedTime);
 		} else
@@ -105,8 +104,15 @@ public class Plant : AnimatedSprite
 
 	private void pour(int delta)
 	{
-		waterLevel += delta * pouringRate;
+		waterLevel += (int) (((float)delta) * pouringRate);
+	}
+
+	public void StoppedPouring()
+	{
+		pouring = null;
+	}
+	private void StartPouring(Vector2 location)
+	{
+		pouring = location;
 	}
 }
-
-

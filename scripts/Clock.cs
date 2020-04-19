@@ -40,7 +40,7 @@ public class Clock : Sprite
 
 	private void OnTimeUpdate()
 	{
-		time += gameTimeVsRealTimeFactor;
+		time += gameTimeVsRealTimeFactor / 2;
 		EmitSignal("UpdateGameTime", time);
 		updateHours((time / (60 * 60)) % 24);
 		updateDays(time / (60 * 60 * 24));

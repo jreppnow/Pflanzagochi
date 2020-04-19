@@ -5,6 +5,8 @@ public class WateringCan : AnimatedSprite
 {
 	[Signal]
 	public delegate void Pouring(Vector2 location);
+	[Signal]
+	public delegate void StoppedPouring();
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -33,10 +35,11 @@ public class WateringCan : AnimatedSprite
 		{
 			if (wasPouring)
 			{
+				EmitSignal("StoppedPouring");
 				GD.Print("Stopped pouring at location ", Position, ".");
+				Animation = "default";
+				Stop();
 			}
-			Animation = "default";
-			Stop();
 		}
 	}
 }

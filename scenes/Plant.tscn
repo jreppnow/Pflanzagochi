@@ -36,7 +36,5 @@ animations = [ {
 position = Vector2( 240, 420 )
 frames = SubResource( 1 )
 animation = "happy"
-frame = 1
 playing = true
 script = ExtResource( 8 )
-growingTime = 5
