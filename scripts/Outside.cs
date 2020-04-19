@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 public class Outside : Sprite
-{
+{	
 	private static int NIGHT = 0;
 	private static int SUNNY = 1;
 	private static int RAINY = 2;

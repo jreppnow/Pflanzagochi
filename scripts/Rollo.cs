@@ -3,6 +3,9 @@ using System;
 
 public class Rollo : Sprite
 {
+	[Signal]
+	public delegate void UpdateRolloState();
+	
 	private static int NIGHT = 0;
 	private static int SUNNY = 1;
 	private static int RAINY = 2;
@@ -26,13 +29,17 @@ public class Rollo : Sprite
 	
 	public void UpdateWeather(int weather)
 	{
+		Texture old = Texture;
 		if(weather == NIGHT) {
 			Texture = open;
 		} else if(weather == RAINY ){
 			Texture = half;
 		} else {
 			Texture = close;
-		}		 
+		}
+		
+		if(old != Texture) {
+			EmitSignal("UpdateRolloState");
+		} 
 	}
 }
-
