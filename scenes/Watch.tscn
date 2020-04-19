@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/Clock.cs" type="Script" id=1]
-[ext_resource path="res://scenes/WakeUpSound.cs" type="Script" id=2]
+[ext_resource path="res://scripts/WakeUpSound.cs" type="Script" id=2]
 [ext_resource path="res://assets/animals_cockrel_crow_001.wav" type="AudioStream" id=3]
 
 [node name="Clock" type="Sprite"]
@@ -16,5 +16,5 @@ autostart = true
 [node name="WakeUpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 script = ExtResource( 2 )
-[connection signal="timeout" from="Timer" to="WakeUpSound" method="UpdateWakeUp"]
 [connection signal="timeout" from="Timer" to="." method="OnTimeUpdate"]
+[connection signal="timeout" from="Timer" to="WakeUpSound" method="UpdateWakeUp"]
