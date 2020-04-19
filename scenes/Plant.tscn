@@ -11,14 +11,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "middle_grown",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "growing",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "happy",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 1 ) ],
@@ -26,9 +26,9 @@ animations = [ {
 "name": "nothing",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "middle_grown",
+"name": "happy",
 "speed": 5.0
 } ]
 
@@ -36,11 +36,7 @@ animations = [ {
 position = Vector2( 240, 420 )
 frames = SubResource( 1 )
 animation = "happy"
+frame = 1
 playing = true
 script = ExtResource( 8 )
-happinessThreshold = -1
 growingTime = 5
-
-[node name="HappinessTimer" type="Timer" parent="."]
-autostart = true
-[connection signal="timeout" from="HappinessTimer" to="." method="OnHappinessTimer"]
