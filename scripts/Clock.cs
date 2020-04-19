@@ -45,7 +45,6 @@ public class Clock : Sprite
 	private void OnTimeUpdate()
 	{
 		time ++;
-		EmitSignal("UpdateGameTime", time);
 		updateHours(time % 24);
 		updateDays(time /  24);
 	}
@@ -58,7 +57,7 @@ public class Clock : Sprite
 			EmitSignal("UpdateNightTime");
 		}
 		
-		GD.Print("[CLOCK]: Update time to ", hours, " o'clock..");
+		//GD.Print("[CLOCK]: Update time to ", hours, " o'clock..");
 		Texture = clock[hours % 12];
 	}
 	

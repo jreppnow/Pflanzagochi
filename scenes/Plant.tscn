@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/plant2/empty_pot.png" type="Texture" id=1]
 [ext_resource path="res://assets/plant2/middle_growing_0.png" type="Texture" id=2]
@@ -8,27 +8,33 @@
 [ext_resource path="res://assets/plant2/happy_0.png" type="Texture" id=6]
 [ext_resource path="res://assets/plant2/growing_1.png" type="Texture" id=7]
 [ext_resource path="res://scripts/Plant.cs" type="Script" id=8]
+[ext_resource path="res://assets/plant2/BlumeKleinSick.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "middle_grown",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "happy",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "growing",
+"name": "large",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "nothing",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "medium",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "dead",
 "speed": 5.0
 } ]
 
@@ -37,8 +43,7 @@ position = Vector2( 300, 600 )
 rotation = 3.14159
 scale = Vector2( 0.35, 0.35 )
 frames = SubResource( 1 )
-animation = "happy"
-frame = 1
+animation = "dead"
 playing = true
 centered = false
 flip_v = true
