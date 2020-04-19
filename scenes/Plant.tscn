@@ -16,6 +16,11 @@ animations = [ {
 "name": "middle_grown",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "happy",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "growing",
@@ -25,16 +30,22 @@ animations = [ {
 "loop": true,
 "name": "nothing",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "happy",
-"speed": 5.0
 } ]
 
 [node name="Plant" type="AnimatedSprite"]
-position = Vector2( 240, 420 )
+position = Vector2( 300, 600 )
+rotation = 3.14159
+scale = Vector2( 0.35, 0.35 )
 frames = SubResource( 1 )
 animation = "happy"
+frame = 1
 playing = true
+centered = false
+flip_v = true
 script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 136.664, -66.7217 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 1 )
+flip_v = true
