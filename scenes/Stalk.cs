@@ -15,11 +15,11 @@ public class Stalk : Area2D
 
 	public Vector2 ComputeNextLocation()
 	{
-		return Position + HitboxExtends.Rotated(Rotation);
+		return Position - HitboxExtends.Rotated(Rotation);
 	}
 
 	public Vector2 ComputeLocation(Vector2 attachedLocation)
 	{
-		return attachedLocation + HitboxExtends.Rotated(Rotation);
+		return attachedLocation - HitboxExtends.Rotated(Rotation);
 	}
 }
