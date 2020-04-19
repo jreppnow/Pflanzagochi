@@ -27,7 +27,7 @@ frame = 1
 
 [node name="WateringCan" parent="." instance=ExtResource( 1 )]
 position = Vector2( 423.848, 50 )
-[connection signal="UpdateTime" from="Clock" to="weathereffect" method="UpdateTime"]
-[connection signal="UpdateTime" from="Clock" to="Background" method="UpdateTime"]
-[connection signal="UpdateTime" from="Clock" to="Background" method="_on_Clock_UpdateTime"]
 [connection signal="UpdateTime" from="Clock" to="Calender" method="UpdateDay"]
+[connection signal="UpdateTime" from="Clock" to="Background" method="_on_Clock_UpdateTime"]
+[connection signal="UpdateTime" from="Clock" to="Background" method="UpdateTime"]
+[connection signal="UpdateTime" from="Clock" to="weathereffect" method="UpdateTime"]
