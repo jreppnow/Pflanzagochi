@@ -19,9 +19,9 @@ scale = Vector2( 0.35, 0.35 )
 [node name="Rollo" parent="." instance=ExtResource( 2 )]
 
 [node name="Clock" parent="." instance=ExtResource( 5 )]
+gameTimeVsRealTimeFactor = 5000
 
 [node name="Plant" parent="." instance=ExtResource( 6 )]
-frame = 1
 
 [node name="Calender" parent="." instance=ExtResource( 3 )]
 
