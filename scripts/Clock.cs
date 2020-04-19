@@ -5,6 +5,7 @@ public class Clock : Sprite
 {
 	[Signal]
 	public delegate void UpdateTime(int hour);
+	[Signal]
 	public delegate void UpdateDay(int day);
 
 	private int time = 0;

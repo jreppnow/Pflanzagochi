@@ -8,6 +8,7 @@ public class Day : Label
 	public void UpdateDay(int day)
 	{
 		GD.Print("[Calender]: Today is day " + day + " of the calender");
+		Text = "" + day;
 	}
 
 }
