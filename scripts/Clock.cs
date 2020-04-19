@@ -6,7 +6,9 @@ public class Clock : Sprite
 	[Signal]
 	public delegate void UpdateTime(int hour);
 	[Signal]
-	public delegate void UpdateDay(int day);
+	public delegate void UpdateDay(int day);	
+	[Signal]
+	public delegate void UpdateWakeUp();
 
 	private int time = 0;
 	private int hour = 0;
@@ -43,6 +45,9 @@ public class Clock : Sprite
 	private void updateHours(int hours) {
 		hour = hours;
 		EmitSignal("UpdateTime", hours);
+		if(hours == 6) {
+			EmitSignal("UpdateWakeUp");
+		}
 		
 		GD.Print("[Watch]: Update time to ", hours, " o'clock..");
 		Texture = clock[hours % 12];
