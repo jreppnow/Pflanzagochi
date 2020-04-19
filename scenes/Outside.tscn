@@ -2,5 +2,5 @@
 
 [ext_resource path="res://scripts/WeatherBackground.cs" type="Script" id=1]
 
-[node name="WeatherBackground" type="Sprite"]
+[node name="Outside" type="Sprite"]
 script = ExtResource( 1 )

@@ -5,11 +5,11 @@
 [ext_resource path="res://scenes/Windowsill.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Watch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Plant.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/WeatherBackground.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Outside.tscn" type="PackedScene" id=7]
 
 [node name="Main" type="Node"]
 
-[node name="Background" parent="." instance=ExtResource( 7 )]
+[node name="Outside" parent="." instance=ExtResource( 7 )]
 position = Vector2( 240, 345 )
 scale = Vector2( 0.35, 0.35 )
 
@@ -23,5 +23,5 @@ scale = Vector2( 0.35, 0.35 )
 
 [node name="WateringCan" parent="." instance=ExtResource( 1 )]
 position = Vector2( 423.848, 50 )
-[connection signal="UpdateTime" from="Clock" to="Background" method="UpdateTime"]
+[connection signal="UpdateTime" from="Clock" to="Outside" method="UpdateTime"]
 [connection signal="UpdateTime" from="Clock" to="Calender" method="UpdateDay"]
