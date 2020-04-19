@@ -9,10 +9,13 @@ public class Clock : Sprite
 	public delegate void UpdateDay(int day);	
 	[Signal]
 	public delegate void UpdateWakeUp();
+	[Signal]
+	public delegate void UpdateGameTime(int time);
 
-	private int time = 0;
-	private int hour = 0;
-	private int day = 0;
+	[Export]
+	public int gameTimeVsRealTimeFactor = 100;
+
+	private int time = 0; // current time in seconds
 	
 	private Texture[] clock = new Texture[12];
 	
@@ -37,24 +40,23 @@ public class Clock : Sprite
 
 	private void OnTimeUpdate()
 	{
-		time++;
-		updateHours(time % 24);
-		updateDays(time / 24);
+		time += gameTimeVsRealTimeFactor;
+		EmitSignal("UpdateGameTime", time);
+		updateHours((time / (60 * 60)) % 24);
+		updateDays(time / (60 * 60 * 24));
 	}
 	
 	private void updateHours(int hours) {
-		hour = hours;
 		EmitSignal("UpdateTime", hours);
-		if(hours == 6) {
+		if (hours == 6) {
 			EmitSignal("UpdateWakeUp");
 		}
 		
-		GD.Print("[Watch]: Update time to ", hours, " o'clock..");
+		GD.Print("[CLOCK]: Update time to ", hours, " o'clock..");
 		Texture = clock[hours % 12];
 	}
 	
 	private void updateDays(int days) {
-		day = days;
 		EmitSignal("UpdateDay", days );
 	}
 }
