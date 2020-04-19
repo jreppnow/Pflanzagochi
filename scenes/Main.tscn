@@ -22,12 +22,13 @@ scale = Vector2( 0.35, 0.35 )
 gameTimeVsRealTimeFactor = 2000
 
 [node name="Plant" parent="." instance=ExtResource( 6 )]
+frame = 0
 
 [node name="Calender" parent="." instance=ExtResource( 3 )]
 
 [node name="WateringCan" parent="." instance=ExtResource( 1 )]
 position = Vector2( 423.848, 50 )
 [connection signal="UpdateWeather" from="Outside" to="Rollo" method="UpdateWeather"]
+[connection signal="UpdateDay" from="Clock" to="Calender" method="UpdateDay"]
 [connection signal="UpdateGameTime" from="Clock" to="Plant" method="UpdateGameTime"]
 [connection signal="UpdateTime" from="Clock" to="Outside" method="UpdateTime"]
-[connection signal="UpdateTime" from="Clock" to="Calender" method="UpdateDay"]
