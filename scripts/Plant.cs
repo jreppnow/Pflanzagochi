@@ -11,7 +11,7 @@ public class Plant : AnimatedSprite
 	private const String MEDIUM = "medium";
 	private const String LARGE = "large";
 
-	private int waterLevel = 100;
+	private int waterLevel = 190;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -36,7 +36,7 @@ public class Plant : AnimatedSprite
 
 	public void UpdateTime(int hour)
 	{
-		waterLevel--;
+		waterLevel = waterLevel -10;
 		GD.Print("[PLANT] water level falling: ", waterLevel);
 		checkHappiness();
 	}

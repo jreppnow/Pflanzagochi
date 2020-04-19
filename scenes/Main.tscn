@@ -35,6 +35,7 @@ position = Vector2( 423.848, 50 )
 visible = false
 script = ExtResource( 9 )
 [connection signal="UpdateWeather" from="Outside" to="Rollo" method="UpdateWeather"]
+[connection signal="UpdateRolloState" from="Rollo" to="Rollo/RolloChangeSound" method="UpdateRolloState"]
 [connection signal="UpdateDay" from="Clock" to="Calender" method="UpdateDay"]
 [connection signal="UpdateTime" from="Clock" to="Outside" method="UpdateTime"]
 [connection signal="UpdateTime" from="Clock" to="Plant" method="UpdateTime"]
